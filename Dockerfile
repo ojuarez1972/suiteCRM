@@ -1,5 +1,5 @@
 # Usar la imagen oficial de PHP 8.2 con Apache
-FROM php:8.2-apache
+FROM php:8.2-apache-bookworm
 
 # Instalar dependencias del sistema operativo
 RUN apt-get update && apt-get install -y \
