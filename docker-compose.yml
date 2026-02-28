@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  suitecrm-app:
+    build: .
+    restart: always
+    volumes:
+      - crm_data:/var/www/html # Persistencia de tus archivos, módulos y subidas
+    depends_on:
+      - suitecrm-db
+
+  suitecrm-db:
+    image: mariadb:10.11
+    restart: always
+    environment:
+      - MARIADB_ROOT_PASSWORD=TuPasswordRootFuerte
+      - MARIADB_DATABASE=suitecrm_db
+      - MARIADB_USER=suitecrm_user
+      - MARIADB_PASSWORD=TuPasswordCrmFuerte
+    volumes:
+      - db_data:/var/lib/mysql # Persistencia de tu base de datos
+
+volumes:
+  crm_data:
+  db_data:
