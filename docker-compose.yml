@@ -19,5 +19,5 @@ services:
       - db_data_v2:/var/lib/mysql
 
 volumes:
-  crm_data_v2:
-  db_data_v2:
+  crm_data_v3:
+  db_data_v3:
