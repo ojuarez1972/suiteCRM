@@ -1,11 +1,11 @@
-version: '3.8'
-
 services:
   suitecrm-app:
     build: .
     restart: always
+    ports:
+      - "8080:80" # <-- ESTA ES LA LÍNEA MÁGICA
     volumes:
-      - crm_data:/var/www/html # Persistencia de tus archivos, módulos y subidas
+      - crm_data:/var/www/html
     depends_on:
       - suitecrm-db
 
@@ -18,7 +18,7 @@ services:
       - MARIADB_USER=suitecrm_user
       - MARIADB_PASSWORD=TuPasswordCrmFuerte
     volumes:
-      - db_data:/var/lib/mysql # Persistencia de tu base de datos
+      - db_data:/var/lib/mysql
 
 volumes:
   crm_data:
