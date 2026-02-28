@@ -2,8 +2,9 @@ services:
   suitecrm-app:
     build: .
     restart: always
+    # Easypanel manejará el tráfico al puerto 80 internamente
     volumes:
-      - crm_data_v4:/var/www/html
+      - crm_data_v10:/var/www/html
     depends_on:
       - suitecrm-db
 
@@ -11,13 +12,13 @@ services:
     image: mariadb:10.11
     restart: always
     environment:
-      - MARIADB_ROOT_PASSWORD=TuPasswordRootFuerte
+      - MARIADB_ROOT_PASSWORD=SuiteRootPass2026!
       - MARIADB_DATABASE=suitecrm_db
       - MARIADB_USER=suitecrm_user
-      - MARIADB_PASSWORD=TuPasswordCrmFuerte
+      - MARIADB_PASSWORD=SuiteCrmPass2026!
     volumes:
-      - db_data_v4:/var/lib/mysql
+      - db_data_v10:/var/lib/mysql
 
 volumes:
-  crm_data_v4:
-  db_data_v4:
+  crm_data_v10:
+  db_data_v10:
